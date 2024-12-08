@@ -39,10 +39,23 @@ git add .
 git commit -m 'Mensagem desejada'
 
 -> Criar o repositório lá no seu Git
--> Copiar o código do repositório e dar o comando
+-> Copiar o código do repositório  ssh e dar o comando
 git remote add origin 'link do seu repositório'
 
 -> Vamos enviar os arquivos para lá agora
 git push origin master
 
-->
+->Se não der certo vamos criar uma chave SSH
+-> Para não haver erro vá abra seu prompt de comando e vá até
+    o diretório c:/user/'seu_nome_da_maquina' cd user/<seunome> abre a pasta
+-> Verificar se vc tem o diretório .ssh
+-> caso não tenha crie ele nesta pasta 
+-> agora rode o comando para criar sua chave.
+ssh-keygen -f seu_nome_rsa -t rsa -b 4096
+-> Se deseja digite uma senha e depois confirme e vai receber
+    a mensagem de chave criar
+-> Agora abra o arquivo seu_nome_rsa.pub que foi criado no diretório .ssh
+cat seu_nome_rsa.pub
+-> copie o código e cole lá no settings do git
+git remote rm origin
+git remote add [copie a sua chave ssh no git]
