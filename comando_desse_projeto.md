@@ -22,5 +22,15 @@ python manage.py runserver
 -> Desativar ambiente virtual
 deactivate
 
--> Com seu ambiente virtual ativo, vamos criar noss app
+-> Com seu ambiente virtual ativo, vamos criar noss app chamado contact
 python manage.py startapp contact
+
+-> Vamos até a pasta contact
+-> abra o arquivo apps.py
+-> copie o nome do seu app
+-> name = 'contact' deve estar assim
+-> vá até a pasta project
+-> abra o arquivo settings.py
+-> Vá até INSTALLED_APPS = [
+-> Na ultima linha coloque uma , e adiciona 'contact',
+-> Sempre importante fazer isso ao criar o seu APP
