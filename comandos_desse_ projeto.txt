@@ -29,3 +29,12 @@ git config --global user.name 'Seu Nome'
 git config --global user.email 'seu@email.com'
 git config --global init.defaultBranch main
 # Configurando o .gitignore
+-> Iniciar o Git
+git init
+-> Vamos adicionar ou use o ínco da direita do VSC
+git add .
+-> Vamos comitar/ comentar nosso envio
+git commit -m 'Mensagem desejada'
+-> Criar o repositório lá no seu Git
+-> Copiar o código do repositório e dar o comando
+git remote add origin 'link do seu repositório'
