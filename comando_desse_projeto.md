@@ -21,3 +21,6 @@ python manage.py runserver
 
 -> Desativar ambiente virtual
 deactivate
+
+-> Com seu ambiente virtual ativo, vamos criar noss app
+python manage.py startapp contact
