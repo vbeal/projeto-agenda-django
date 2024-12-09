@@ -6,4 +6,3 @@ def index(request):
         request, 
         'contact/index.html',
         )
-
