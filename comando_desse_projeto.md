@@ -34,3 +34,21 @@ python manage.py startapp contact
 -> Vá até INSTALLED_APPS = [
 -> Na ultima linha coloque uma , e adiciona 'contact',
 -> Sempre importante fazer isso ao criar o seu APP
+
+-> configuramos urls e views, templates iniciais etc..
+
+python manage.py migrate
+
+-> vamos criar um usuário master para o Django Admin
+python manage.py createsuperuser
+-> caso você esqueça a sua senha de usuário basta rodar o comando
+python manage.py changepassword 'seu_nome_de_usuario'
+
+-> Toda vez que eu atualizar meus models preciso rodar o camando
+python manage.py makemigrations
+-> Como criei as migrações, agora vamos migrar e criar as tabelas na base de dados
+python manage.py migrate
+
+-> Realizar o Collectstatic para não enviar para o git pois ele só será
+usado quando for feito deploy no servidor real
+python manage.py collectstatic
