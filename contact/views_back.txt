@@ -1,0 +1,15 @@
+'''
+Nossas Views estão no diretorio Views
+assim podemos separar nossos arquivos
+de Views em mais partes para facilitar
+'''
+
+from django.shortcuts import render
+
+
+def index(request):
+    return render(
+        request, 
+        'contact/index.html',
+        )
+
