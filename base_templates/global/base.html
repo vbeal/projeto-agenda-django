@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{titulo}}</title>
+    <title>{{titulo}} - Agenda</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -18,10 +18,53 @@
     <!-- <link rel="stylesheet" href="{% static 'home/css/blue.css' %}" /> -->
   </head>
   <body>
-    <!-- {% include "global/menu.html" %} -->
-    <div class="container mt-2">
-      {% block texto %} TEXTO BASE 3 {% endblock texto %}
+    {% include "global/menu.html" %}
+    <main class="container p-5">
+      <div class="container mt-3">
+        <!--  block para o conteúdo do meio da página -->
+        {% block meio %} {% endblock meio %}
+      </div>
+    </main>
+    <!-- fim do block do meio -->
+
+    <!-- rodape do site -->
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+          >
+            <i class="fa-solid fa-address-book fa-xl"></i>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary"
+            >&copy; {{ano}} Agenda de Contatos</span
+          >
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#"
+              ><i class="fa-brands fa-twitter fa-xl"></i
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#"
+              ><i class="fa-brands fa-square-instagram fa-xl"></i
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#"
+              ><i class="fa-brands fa-facebook fa-xl"></i
+            ></a>
+          </li>
+        </ul>
+      </footer>
     </div>
+    <!-- fim do rodape do site -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
