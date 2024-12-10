@@ -1,1 +1,116 @@
 {% extends "global/base.html" %}
+<!------------------------->
+
+{% block meio %}
+<!------------------------->
+<style> .highlight { background-color: yellow; } </style>
+<h2>Meus Contatos</h2>
+
+{% if contacts %}
+<table class="table table-striped table-hover table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Sobrenome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contact in contacts %}
+
+    <tr>
+      <th scope="row">
+        <a href="{% url 'contact:contact' contact.id %}">{{contact.id}}</a>
+      </th>
+      <td>{{ contact.first_name|safe }}</td>
+      <td>{{ contact.last_name|safe }}</td>
+      <td>{{ contact.phone|safe }}</td>
+      <td>{{ contact.email|safe }}</td>
+      <td>
+        <a
+          href="{% url 'contact:contact' contact.id %}"
+          class="btn btn-secondary btn-sm" data-bs-toggle="tooltip"
+          data-bs-placement="left"
+          title="Detalhes do contato"
+          ><i
+            class="fa-regular fa-id-badge"
+            
+          ></i>
+        </a>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+<hr />
+
+<div class="row">
+  <div class="col">
+    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+  </div>
+  <div class="col">
+    <!-- inicio da paginação -->
+    <nav aria-label="Navegão de páginas">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1&q={{request.GET.q.strip}}" tabindex="-1" aria-disabled="true"
+            >&laquo; Primeira</a
+          >
+        </li>
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="?page={{ page_obj.previous_page_number }}&q={{request.GET.q.strip}}"
+            tabindex="-1"
+            aria-disabled="true"
+            >Anterior</a
+          >
+        </li>
+        {% endif %}
+
+        <li class="page-item">
+          <a class="page-link active" href="?page={{page_obj.number }}&q={{request.GET.q.strip}}" aria-current="page">{{page_obj.number }}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{page_obj.number|add:"1"}}&q={{request.GET.q.strip}}">{{page_obj.number|add:"1"}}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{page_obj.number|add:"2"}}&q={{request.GET.q.strip}}"> {{page_obj.number|add:"2"}}</a>
+        </li>
+
+        <li class="page-item">
+          <a class="page-link" href="?page={{page_obj.number|add:"3"}}&q={{request.GET.q.strip}}"> {{page_obj.number|add:"3"}}</a>
+        </li>
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{request.GET.q.strip}}"
+            >Próxima</a
+          >
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&q={{request.GET.q.strip}}"
+            >Última &raquo;</a
+          >
+        </li>
+
+        {% endif %}
+        
+      </ul>
+    </nav>
+    <!-- fim da paginação -->
+  </div>
+</div>
+
+
+{% else %}
+<h3 class="text-danger">Nenhum contato encontrado</h3>
+{% endif %}
+<!------------------------->
+{% endblock meio %}
+<!------------------------->
