@@ -59,7 +59,7 @@
         {% if page_obj.has_previous %}
         <li class="page-item">
           <a class="page-link" href="?page=1&q={{request.GET.q.strip}}" tabindex="-1" aria-disabled="true"
-            >&laquo; Primeira</a
+            >Primeira</a
           >
         </li>
         <li class="page-item">
@@ -76,6 +76,7 @@
         <li class="page-item">
           <a class="page-link active" href="?page={{page_obj.number }}&q={{request.GET.q.strip}}" aria-current="page">{{page_obj.number }}</a>
         </li>
+        {% if page_obj.has_next %}
         <li class="page-item">
           <a class="page-link" href="?page={{page_obj.number|add:"1"}}&q={{request.GET.q.strip}}">{{page_obj.number|add:"1"}}</a>
         </li>
@@ -87,7 +88,7 @@
           <a class="page-link" href="?page={{page_obj.number|add:"3"}}&q={{request.GET.q.strip}}"> {{page_obj.number|add:"3"}}</a>
         </li>
 
-        {% if page_obj.has_next %}
+        
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{request.GET.q.strip}}"
             >Próxima</a
@@ -95,7 +96,7 @@
         </li>
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&q={{request.GET.q.strip}}"
-            >Última &raquo;</a
+            >Última</a
           >
         </li>
 
