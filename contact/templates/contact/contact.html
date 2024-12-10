@@ -1,0 +1,38 @@
+{% extends "global/base.html" %}
+<!------------------------->
+
+{% block meio %}
+<!------------------------->
+<h4>Detalhes do contato</h4>
+
+<div class="card">
+  <h3 class="card-header">{{contact.first_name}} {{contact.last_name}}</h3>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-8">
+        <h5 class="card-title"><b>ID:</b> {{contact.id}}</h5>
+        <h5 class="card-title"><b>Telefone:</b> {{contact.phone}}</h5>
+        <h5 class="card-title"><b>Email:</b> {{contact.email}}</h5>
+        <h5 class="card-title">
+          <b>Categoria:</b> {% if contact.category %} {{contact.category.name}}
+          {% else %} Sem categoria {% endif %}
+        </h5>
+        <h5 class="card-title">
+          <b>Descrição:</b> <i>{{contact.description}}</i>
+        </h5>
+      </div>
+      <div class="col-4">
+        {% if contact.picture %}
+        <img src="{{contact.picture.url}}" alt="" class="img-fluid" />
+        {% endif %}
+      </div>
+      <p>
+        <a href="/" class="btn btn-secondary">Voltar</a>
+      </p>
+    </div>
+  </div>
+
+  <!------------------------->
+  {% endblock meio %}
+  <!------------------------->
+</div>
